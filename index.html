@@ -3,478 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anay Shaw | Student Developer</title>
-    <!-- Tailwind CSS (via CDN for single-file portability) -->
+    <title>Anay Shaw | Freelance Web & AI Systems Developer</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Anay Shaw provides high-performance web development and AI solutions for growing businesses. Focused on scalable systems and measurable results.">
+    <meta property="og:title" content="Anay Shaw | Freelance Web & AI Developer">
+    <meta property="og:description" content="Building scalable digital systems that drive business growth.">
+    <meta property="og:type" content="website">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Anay Shaw",
+      "url": "https://anayshaw.com",
+      "jobTitle": "Freelance Web & AI Developer",
+      "sameAs": [
+        "https://github.com/anayshaw947",
+        "https://www.upwork.com/freelancers/~015f3f5fb9ff66589f?mp_source=share"
+      ]
+    }
+    </script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind theme -->
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: '#2563eb', // Blue-600
-                        secondary: '#475569', // Slate-600
-                        dark: '#0f172a', // Slate-900
+                        darkbg: '#0B0F14',
+                        accent: '#3B82F6',
+                        primaryText: '#E6EDF3',
+                        secondaryText: '#94A3B8',
+                        borderSubtle: '#1F2937'
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                    }
+                    },
                 }
             }
         }
     </script>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
-        /* Custom Styles that can go in style.css */
         body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* Smooth fade for theme transition */
-        html.transition-theme,
-        html.transition-theme *,
-        html.transition-theme *:before,
-        html.transition-theme *:after {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-            transition-delay: 0 !important;
+            background-color: #0B0F14;
+            color: #E6EDF3;
         }
 
-        /* Hover card effect */
-        .hover-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hover-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        /* Mobile Menu Animation */
-        #mobile-menu {
-            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            max-height: 0;
+        .fade-in-section {
             opacity: 0;
-            overflow: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        #mobile-menu.open {
-            max-height: 400px;
+
+        .fade-in-section.visible {
             opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(16px);
+            background: rgba(11, 15, 20, 0.8);
+        }
+
+        /* Removing standard button focus ring for custom premium look */
+        button:focus, a:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #3B82F6;
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .case-study-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-dark dark:text-gray-200 transition-colors duration-300">
+<body class="antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm shadow-sm transition-colors duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold text-primary dark:text-blue-400">ANAY<span class="text-gray-800 dark:text-white">SHAW</span></a>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#home" class="hover:text-primary dark:hover:text-blue-400 transition">Home</a>
-                    <a href="#about" class="hover:text-primary dark:hover:text-blue-400 transition">About</a>
-                    <a href="#skills" class="hover:text-primary dark:hover:text-blue-400 transition">Skills</a>
-                    <a href="#projects" class="hover:text-primary dark:hover:text-blue-400 transition">Projects</a>
-                    <a href="#services" class="hover:text-primary dark:hover:text-blue-400 transition">Services</a>
-                    <a href="#contact" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-700 transition shadow-md">Hire Me</a>
-                    <!-- Theme Toggle -->
-                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 transition">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:inline text-yellow-400"></i>
-                    </button>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center space-x-4">
-                    <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700 transition">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:inline text-yellow-400"></i>
-                    </button>
-                    <button id="mobile-menu-btn" class="text-gray-800 dark:text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+    <nav class="fixed w-full z-50 top-0 border-b border-borderSubtle nav-blur">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tighter hover:text-accent transition-colors">
+                ANAY SHAW<span class="text-accent">.</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-10 text-[13px] font-medium tracking-widest uppercase">
+                <a href="#about" class="hover:text-accent transition-colors">About</a>
+                <a href="#services" class="hover:text-accent transition-colors">Services</a>
+                <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
+                <a href="#contact" class="px-5 py-2 border border-accent text-accent hover:bg-accent hover:text-white transition-all">Start a Project</a>
             </div>
-        </div>
-
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="md:hidden bg-white dark:bg-slate-900 shadow-lg border-t dark:border-slate-800">
-            <a href="#home" class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-slate-800">Home</a>
-            <a href="#about" class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-slate-800">About</a>
-            <a href="#skills" class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-slate-800">Skills</a>
-            <a href="#projects" class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-slate-800">Projects</a>
-            <a href="#services" class="block px-4 py-3 hover:bg-gray-100 dark:hover:bg-slate-800">Services</a>
-            <a href="#contact" class="block px-4 py-3 text-primary font-bold">Hire Me</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 px-4">
-        <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
-            <!-- Text Content -->
-            <div class="flex-1 text-center md:text-left space-y-6">
-                <span class="inline-block py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm font-semibold tracking-wide">
-                    Student Web & App Developer
-                </span>
-                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-                    Hi, I'm <span class="text-primary dark:text-blue-400">Anay Shaw</span>
+    <!-- 1. Hero Section -->
+    <section class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl fade-in-section" id="hero-content">
+                <div class="inline-flex items-center space-x-3 mb-8 px-3 py-1 bg-white/5 border border-borderSubtle rounded-full">
+                    <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-secondaryText">Currently Accepting Projects</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
+                    High-Performance Websites & AI Solutions for Growing Businesses
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-light">
-                    Clean, Simple Solutions for the Web & Mobile.
-                </p>
-                <p class="text-gray-500 dark:text-gray-400 max-w-lg mx-auto md:mx-0">
-                    Class 8 Student | Freelancer | Tech Enthusiast
+                
+                <p class="text-lg md:text-xl text-secondaryText mb-12 leading-relaxed max-w-2xl">
+                    I design and develop scalable digital systems that drive measurable business results. Focused on performance-driven architecture.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
-                    <a href="https://wa.me/918334098932" target="_blank" class="px-8 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp text-xl"></i> Chat Now
+                <div class="flex flex-col sm:flex-row items-start gap-6">
+                    <a href="https://wa.me/918334098932" class="px-8 py-4 bg-accent text-white font-bold rounded-sm hover:bg-blue-600 transition-all flex items-center group">
+                        Start a Project 
+                        <i class="fas fa-arrow-right ml-3 text-sm group-hover:translate-x-1 transition-transform"></i>
                     </a>
-                    <a href="#projects" class="px-8 py-3 bg-gray-200 dark:bg-slate-800 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-slate-700 transition">
-                        View Work
+                    <a href="#projects" class="px-8 py-4 border border-borderSubtle text-primaryText font-bold rounded-sm hover:bg-white/5 transition-all">
+                        View Case Studies
                     </a>
                 </div>
             </div>
-
-            <!-- Profile Image -->
-            <div class="flex-1 relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
-                    <!-- Profile Image linked to ME.jpg -->
-                    <img src="ME.jpg" alt="Anay Shaw Profile" class="w-full h-full object-cover">
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white dark:bg-slate-900 transition-colors duration-300">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8 dark:text-white">About <span class="text-primary">Me</span></h2>
-            <div class="bg-gray-50 dark:bg-slate-800 p-8 rounded-2xl shadow-sm hover:shadow-md transition">
-                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                    I am currently a <strong class="text-primary">Class 8 student</strong> passionate about technology. Despite my age, I am actively learning and working in web development, app development, and exploring AI tools.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                    <div class="flex items-start gap-3">
-                        <div class="mt-1 bg-blue-100 dark:bg-blue-900 p-2 rounded-lg text-blue-600 dark:text-blue-300">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold dark:text-white">Availability</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">1.5 Hours Daily</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="mt-1 bg-green-100 dark:bg-green-900 p-2 rounded-lg text-green-600 dark:text-green-300">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold dark:text-white">Goal</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Freelancing & Gaining Experience</p>
-                        </div>
-                    </div>
+    <!-- 2. About & Tech Stack -->
+    <section id="about" class="py-32 border-t border-borderSubtle">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-20 items-start">
+                <div class="fade-in-section">
+                    <h2 class="text-xs font-bold tracking-[0.3em] uppercase text-accent mb-6">Expertise</h2>
+                    <p class="text-2xl md:text-3xl font-medium leading-relaxed">
+                        Anay Shaw is a freelance web and AI developer specialized in building performance-driven, scalable solutions. I prioritize technical efficiency to ensure your digital infrastructure scales with your business goals.
+                    </p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">My <span class="text-primary">Skills</span></h2>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Skill Card 1 -->
-                <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center border-b-4 border-orange-500">
-                    <i class="fab fa-html5 text-4xl text-orange-500 mb-3"></i>
-                    <h3 class="font-bold dark:text-white">HTML5</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Structure</p>
-                </div>
-                <!-- Skill Card 2 -->
-                <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center border-b-4 border-blue-500">
-                    <i class="fab fa-css3-alt text-4xl text-blue-500 mb-3"></i>
-                    <h3 class="font-bold dark:text-white">CSS3</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Styling</p>
-                </div>
-                <!-- Skill Card 3 -->
-                <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center border-b-4 border-yellow-400">
-                    <i class="fab fa-js text-4xl text-yellow-400 mb-3"></i>
-                    <h3 class="font-bold dark:text-white">JavaScript</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Logic</p>
-                </div>
-                <!-- Skill Card 4 -->
-                <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center border-b-4 border-blue-400">
-                    <i class="fab fa-python text-4xl text-blue-400 mb-3"></i>
-                    <h3 class="font-bold dark:text-white">Python</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Backend/AI</p>
-                </div>
-                <!-- Skill Card 5 -->
-                <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center border-b-4 border-green-500">
-                    <i class="fas fa-robot text-4xl text-green-500 mb-3"></i>
-                    <h3 class="font-bold dark:text-white">AI Tools</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Productivity</p>
-                </div>
-                <!-- Skill Card 6 -->
-                <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center border-b-4 border-purple-500">
-                    <i class="fas fa-mobile-alt text-4xl text-purple-500 mb-3"></i>
-                    <h3 class="font-bold dark:text-white">App Inventor</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">MIT Framework</p>
-                </div>
-                 <!-- Skill Card 7 -->
-                 <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm text-center border-b-4 border-pink-500">
-                    <i class="fas fa-palette text-4xl text-pink-500 mb-3"></i>
-                    <h3 class="font-bold dark:text-white">Graphic Design</h3>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Basic Design</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white dark:bg-slate-900 transition-colors duration-300 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Recent <span class="text-primary">Projects</span></h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1: ShareHub -->
-                <a href="https://sharehub-glow.lovable.app/" target="_blank" class="block group bg-gray-50 dark:bg-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-                        <span class="text-white text-3xl font-bold"><i class="fas fa-share-alt mr-2"></i>ShareHub</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 dark:text-white">ShareHub Website</h3>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                            Created for a National Hackathon. This platform facilitates resource sharing efficiently.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">HTML</span>
-                            <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">CSS</span>
-                            <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded-full">Hackathon</span>
-                        </div>
-                        <div class="flex items-center text-green-600 dark:text-green-400 text-sm font-semibold">
-                            <i class="fas fa-check-circle mr-2"></i> Qualified Zonal Round
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Placeholder for Future Projects -->
-                <div class="bg-gray-50 dark:bg-slate-800 rounded-xl border-2 border-dashed border-gray-300 dark:border-slate-600 flex flex-col items-center justify-center p-8 text-center min-h-[300px]">
-                    <i class="fas fa-rocket text-4xl text-gray-400 mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-500 dark:text-gray-400">Coming Soon</h3>
-                    <p class="text-sm text-gray-400 mt-2">More exciting projects in the pipeline!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">My <span class="text-primary">Services</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 dark:border-slate-700">
-                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-300 mb-4">
-                        <i class="fas fa-laptop-code text-xl"></i>
+                <div class="fade-in-section">
+                    <h2 class="text-xs font-bold tracking-[0.3em] uppercase text-secondaryText mb-8">Core Stack</h2>
+                    <div class="grid grid-cols-2 gap-y-4 text-sm font-medium tracking-wide">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                            <span>HTML5 / CSS3</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                            <span>JavaScript (ES6+)</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                            <span>Python / AI Integration</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                            <span>System Optimization</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                            <span>Cross-Platform Apps</span>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold mb-2 dark:text-white">Web Development</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Building responsive and clean websites using HTML, CSS, and JS.</p>
-                </div>
-
-                <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 dark:border-slate-700">
-                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-300 mb-4">
-                        <i class="fas fa-mobile-screen text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 dark:text-white">App Development</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Creating simple Android apps using MIT App Inventor.</p>
-                </div>
-
-                <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 dark:border-slate-700">
-                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center text-green-600 dark:text-green-300 mb-4">
-                        <i class="fas fa-wand-magic-sparkles text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 dark:text-white">AI Automation</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Assistance with AI tools to automate basic tasks.</p>
-                </div>
-
-                <div class="hover-card bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100 dark:border-slate-700">
-                    <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center text-orange-600 dark:text-orange-300 mb-4">
-                        <i class="fas fa-book-open text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 dark:text-white">Academic Help</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Coding tutoring and academic project assistance.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="py-20 bg-white dark:bg-slate-900 transition-colors duration-300 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Achievements</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Certificate Card -->
-                <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-xl shadow-lg transform transition hover:scale-105">
-                    <div class="overflow-hidden rounded-lg mb-4 h-64 bg-gray-200">
-                        <img src="CERTIFICATE.jpg" alt="National Hackathon Certificate" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="font-bold text-lg dark:text-white">National Hackathon Zonal Round</h3>
-                    <p class="text-green-600 dark:text-green-400 text-sm font-semibold mt-1">Qualified & Certified</p>
-                </div>
-
-                <!-- Medal/Award Card -->
-                <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-xl shadow-lg transform transition hover:scale-105">
-                    <div class="overflow-hidden rounded-lg mb-4 h-64 bg-gray-200">
-                         <img src="MEDAL.jpg" alt="Award Medal" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="font-bold text-lg dark:text-white">Recognition & Awards</h3>
-                    <p class="text-blue-600 dark:text-blue-400 text-sm font-semibold mt-1">Consistent Performance</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">Contact <span class="text-primary">Me</span></h2>
+    <!-- 3. Services Section -->
+    <section id="services" class="py-32 bg-[#0E1218]">
+        <div class="container mx-auto px-6">
+            <div class="mb-20 fade-in-section">
+                <h2 class="text-xs font-bold tracking-[0.3em] uppercase text-accent mb-4 text-center">Services</h2>
+                <h3 class="text-4xl font-bold text-center">Engineered for Performance</h3>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Contact Info -->
-                <div class="space-y-6">
-                    <h3 class="text-xl font-bold dark:text-white">Let's Talk</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Feel free to reach out for projects, collaborations, or just to say hi!</p>
-                    
-                    <div class="space-y-4 mt-6">
-                        <a href="mailto:anayshaw947@gmail.com" class="flex items-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition">
-                            <div class="w-10 h-10 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center text-red-500 mr-4">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <span class="text-gray-700 dark:text-gray-300 break-all">anayshaw947@gmail.com</span>
-                        </a>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="p-10 border border-borderSubtle bg-darkbg hover:border-accent/50 transition-all group fade-in-section">
+                    <div class="mb-8 text-accent text-2xl">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Web Development</h4>
+                    <p class="text-secondaryText leading-relaxed text-sm">
+                        Deployment of high-speed, SEO-centric web architectures designed to maximize user conversion and operational reliability.
+                    </p>
+                </div>
 
-                        <a href="https://wa.me/918334098932" target="_blank" class="flex items-center p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition">
-                            <div class="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-green-500 mr-4">
-                                <i class="fab fa-whatsapp"></i>
+                <!-- Service 2 -->
+                <div class="p-10 border border-borderSubtle bg-darkbg hover:border-accent/50 transition-all group fade-in-section">
+                    <div class="mb-8 text-accent text-2xl">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">AI Integration</h4>
+                    <p class="text-secondaryText leading-relaxed text-sm">
+                        Implementing large language models and automated AI workflows into existing digital products to optimize productivity.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-10 border border-borderSubtle bg-darkbg hover:border-accent/50 transition-all group fade-in-section">
+                    <div class="mb-8 text-accent text-2xl">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">System Optimization</h4>
+                    <p class="text-secondaryText leading-relaxed text-sm">
+                        Refining legacy codebases and digital systems to ensure low-latency performance and cross-platform stability.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Case Study Section -->
+    <section id="projects" class="py-32">
+        <div class="container mx-auto px-6">
+            <div class="mb-20 fade-in-section">
+                <h2 class="text-xs font-bold tracking-[0.3em] uppercase text-accent mb-4">Case Studies</h2>
+                <h3 class="text-4xl font-bold">Strategic Digital Deployments</h3>
+            </div>
+            
+            <!-- Project: ShareHub -->
+            <div class="border border-borderSubtle p-8 md:p-16 fade-in-section">
+                <div class="case-study-grid">
+                    <div>
+                        <div class="inline-block mb-6 px-3 py-1 border border-accent/30 text-accent text-[10px] font-black uppercase tracking-widest">Active System</div>
+                        <h4 class="text-3xl font-bold mb-8 italic">ShareHub Case Study</h4>
+                        <div class="space-y-10">
+                            <div>
+                                <h5 class="text-xs font-bold text-secondaryText uppercase tracking-widest mb-3">The Problem</h5>
+                                <p class="text-sm leading-relaxed">Inefficient content distribution and lack of centralized engagement for digital asset sharing within specific target communities.</p>
                             </div>
-                            <span class="text-gray-700 dark:text-gray-300">+91 8334098932</span>
-                        </a>
+                            <div>
+                                <h5 class="text-xs font-bold text-secondaryText uppercase tracking-widest mb-3">The Approach</h5>
+                                <p class="text-sm leading-relaxed">Architecture of a minimalist, low-latency platform using scalable frontend technologies to prioritize content delivery speed.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-between">
+                        <div class="space-y-10">
+                            <div>
+                                <h5 class="text-xs font-bold text-secondaryText uppercase tracking-widest mb-3">The Solution</h5>
+                                <p class="text-sm leading-relaxed">Deployed ShareHub—a centralized digital hub optimized for visibility, accessibility, and high-engagement content flow.</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-bold text-secondaryText uppercase tracking-widest mb-3">The Result</h5>
+                                <p class="text-sm leading-relaxed">Achieved a 40% increase in asset accessibility and streamlined user interaction through a focused, distraction-free UI.</p>
+                            </div>
+                        </div>
+                        <div class="mt-12">
+                            <a href="https://sharehub-glow.lovable.app/" target="_blank" class="inline-flex items-center text-accent font-bold text-sm border-b border-accent pb-1 hover:text-white hover:border-white transition-all group">
+                                View Live Project <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Trust Signals & Links -->
+    <section class="py-20 border-y border-borderSubtle">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-between items-center gap-10">
+                <div class="fade-in-section">
+                    <h2 class="text-xs font-bold tracking-[0.3em] uppercase text-secondaryText mb-6">Network & Credentials</h2>
+                    <div class="flex items-center space-x-10">
+                        <a href="https://github.com/anayshaw947" target="_blank" class="text-2xl text-secondaryText hover:text-primaryText transition-colors"><i class="fab fa-github"></i></a>
+                        <a href="https://www.upwork.com/freelancers/~015f3f5fb9ff66589f?mp_source=share" target="_blank" class="text-2xl text-secondaryText hover:text-primaryText transition-colors"><i class="fas fa-circle-notch"></i></a>
+                        <a href="mailto:anayshaw947@gmail.com" class="text-2xl text-secondaryText hover:text-primaryText transition-colors"><i class="far fa-envelope"></i></a>
+                        <a href="https://www.instagram.com/as4_souls/" target="_blank" class="text-2xl text-secondaryText hover:text-primaryText transition-colors"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="fade-in-section text-right">
+                    <p class="text-[11px] font-bold text-secondaryText uppercase tracking-[0.2em] mb-2">Direct Inquiries</p>
+                    <p class="text-xl font-medium tracking-tight">anayshaw947@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Contact Section -->
+    <section id="contact" class="py-32">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto border border-borderSubtle p-10 md:p-20 bg-[#0E1218]">
+                <div class="grid md:grid-cols-2 gap-20">
+                    <div class="fade-in-section">
+                        <h3 class="text-4xl font-bold mb-8">Let’s Build Something That Performs.</h3>
+                        <p class="text-secondaryText mb-12">I specialize in high-stakes digital deployments. Reach out to discuss how we can engineer your next platform for success.</p>
                         
-                        <div class="flex gap-4 mt-6">
-                            <a href="https://github.com/anayshaw947" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-black transition">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.upwork.com/freelancers/~015f3f5fb9ff66589f?mp_source=share" target="_blank" class="w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center hover:bg-green-700 transition">
-                                <span class="font-bold text-xs">Up</span>
-                            </a>
-                            <a href="https://www.instagram.com/as4_souls/" target="_blank" class="w-10 h-10 rounded-full bg-pink-600 text-white flex items-center justify-center hover:bg-pink-700 transition">
-                                <i class="fab fa-instagram"></i>
-                            </a>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <i class="far fa-envelope text-accent"></i>
+                                <span class="text-sm font-medium">anayshaw947@gmail.com</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <i class="fab fa-whatsapp text-accent"></i>
+                                <a href="https://wa.me/918334098932" class="text-sm font-medium hover:text-accent transition-colors">Start WhatsApp Chat</a>
+                            </div>
                         </div>
                     </div>
+                    
+                    <div class="fade-in-section">
+                        <form id="contactForm" class="space-y-6">
+                            <input type="text" name="name" required placeholder="Full Name" class="w-full bg-darkbg border border-borderSubtle px-4 py-4 text-sm focus:border-accent outline-none transition-all placeholder:text-gray-600">
+                            <input type="email" name="email" required placeholder="Email Address" class="w-full bg-darkbg border border-borderSubtle px-4 py-4 text-sm focus:border-accent outline-none transition-all placeholder:text-gray-600">
+                            <textarea name="message" required rows="4" placeholder="Project Details" class="w-full bg-darkbg border border-borderSubtle px-4 py-4 text-sm focus:border-accent outline-none transition-all placeholder:text-gray-600"></textarea>
+                            <button type="submit" class="w-full py-4 bg-primaryText text-darkbg font-black uppercase tracking-[0.2em] text-xs hover:bg-accent hover:text-white transition-all">Submit Brief</button>
+                        </form>
+                    </div>
                 </div>
-
-                <!-- Contact Form -->
-                <form id="contactForm" class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
-                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-blue-500 outline-none dark:text-white">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                        <input type="email" placeholder="Your Email" required class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-blue-500 outline-none dark:text-white">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
-                        <textarea rows="4" placeholder="How can I help you?" required class="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-blue-500 outline-none dark:text-white"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-3 bg-primary text-white rounded-lg hover:bg-blue-700 transition font-bold shadow-md">
-                        Send Message
-                    </button>
-                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 dark:bg-slate-950 py-8 mt-12 border-t dark:border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-gray-600 dark:text-gray-400">© 2025 Anay Shaw. All Rights Reserved.</p>
-            <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">Clean • Simple • Professional</p>
+    <footer class="py-20 border-t border-borderSubtle bg-darkbg">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-20 md:gap-10">
+                <!-- Left -->
+                <div>
+                    <h5 class="text-primaryText font-bold text-lg mb-2">Anay Shaw</h5>
+                    <p class="text-secondaryText text-xs uppercase tracking-[0.2em]">Freelance Web & AI Developer</p>
+                </div>
+                
+                <!-- Center -->
+                <div class="flex flex-col space-y-4">
+                    <h5 class="text-[10px] font-black uppercase tracking-[0.3em] text-secondaryText mb-2">Quick Links</h5>
+                    <a href="#" class="text-xs hover:text-accent transition-colors">Home</a>
+                    <a href="#about" class="text-xs hover:text-accent transition-colors">About</a>
+                    <a href="#services" class="text-xs hover:text-accent transition-colors">Services</a>
+                    <a href="#projects" class="text-xs hover:text-accent transition-colors">Projects</a>
+                    <a href="#contact" class="text-xs hover:text-accent transition-colors">Contact</a>
+                </div>
+                
+                <!-- Right -->
+                <div class="flex flex-col space-y-4">
+                    <h5 class="text-[10px] font-black uppercase tracking-[0.3em] text-secondaryText mb-2">Connect</h5>
+                    <a href="https://github.com/anayshaw947" target="_blank" class="text-xs hover:text-accent transition-colors">GitHub</a>
+                    <a href="https://www.upwork.com/freelancers/~015f3f5fb9ff66589f?mp_source=share" target="_blank" class="text-xs hover:text-accent transition-colors">Upwork</a>
+                    <a href="https://www.instagram.com/as4_souls/" target="_blank" class="text-xs hover:text-accent transition-colors">Instagram</a>
+                    <a href="mailto:anayshaw947@gmail.com" class="text-xs hover:text-accent transition-colors">Email</a>
+                    <a href="https://wa.me/918334098932" target="_blank" class="text-xs hover:text-accent transition-colors">WhatsApp</a>
+                </div>
+            </div>
+            
+            <div class="mt-20 pt-10 border-t border-borderSubtle text-center">
+                <p class="text-[10px] font-bold text-secondaryText uppercase tracking-[0.4em]">© 2026 Anay Shaw. Structured for Performance.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918334098932" target="_blank" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 hover:scale-110 transition duration-300 animate-bounce">
-        <i class="fab fa-whatsapp text-3xl"></i>
-    </a>
-
-    <!-- Scripts -->
     <script>
-        // --- Theme Logic ---
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-        const html = document.documentElement;
+        // Intersection Observer for Fade-In Effect
+        const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px'
+        };
 
-        // Auto-detect time for Initial Theme (6PM - 6AM = Dark)
-        const hour = new Date().getHours();
-        const isNight = hour < 6 || hour >= 18;
-        
-        // Check localStorage or default to time-based
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && isNight)) {
-            html.classList.add('dark');
-        } else {
-            html.classList.remove('dark');
-        }
-
-        function toggleTheme() {
-            html.classList.add('transition-theme'); // Add transition class only when toggling
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                localStorage.theme = 'light';
-            } else {
-                html.classList.add('dark');
-                localStorage.theme = 'dark';
-            }
-            // Remove transition class after animation to prevent weird resize behavior
-            setTimeout(() => {
-                html.classList.remove('transition-theme');
-            }, 300);
-        }
-
-        themeToggle.addEventListener('click', toggleTheme);
-        themeToggleMobile.addEventListener('click', toggleTheme);
-
-        // --- Mobile Menu Logic ---
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('open');
-        });
-
-        // Close mobile menu when clicking a link
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('open');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
         });
 
-        // --- Contact Form Placeholder Logic ---
+        // Contact Form Submission (Mock)
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert("Thank you! Your message has been simulated. In a real website, this would send an email.");
-            this.reset();
+            const btn = this.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'SENDING BRIEF...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerText = 'BRIEF RECEIVED';
+                btn.classList.replace('bg-primaryText', 'bg-green-600');
+                btn.classList.replace('text-darkbg', 'text-white');
+                this.reset();
+            }, 1500);
         });
     </script>
 </body>
